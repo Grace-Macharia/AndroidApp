@@ -1,18 +1,24 @@
 package com.example.androidprojectone
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -26,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -45,75 +52,149 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .background(color = Color.Black)
                         .fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background){
-                        Column (modifier = Modifier
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Column(
+                        modifier = Modifier
                             .clip(shape = RoundedCornerShape(20.dp))
-                            .border(width = 2.dp, color = Color.Black)) {
+                            .border(width = 2.dp, color = Color.Black)
+                    ) {
 //                            HelloClient("Jude")
 //                            SecondLine()
 //                            ThirdLine()
-                            TextComponent(value = "Hey there",
-                                15.sp,
-                                Color.Black,
-                                FontFamily.Monospace,
-                                FontWeight.Bold,
-                                TextAlign.Center)
-                            TextComponent(value = "Please register",
-                                15.sp,
-                                Color.Black,
-                                FontFamily.Monospace,
-                                FontWeight.Bold,
-                                TextAlign.Center)
-                            Spacer(modifier = Modifier.height(40.dp))
-                            TextFieldComponent(mylabel = "Enter your Name")
-                            Spacer(modifier = Modifier.height(40.dp))
-                            TextFieldComponent(mylabel = "Enter your Email")
-                            Spacer(modifier = Modifier.height(40.dp))
-                            TextFieldComponent(mylabel = "Date of Birth")
-                            Spacer(modifier = Modifier.height(40.dp))
-                            TextFieldComponent(mylabel = "Location")
-
+                        TextComponent(
+                            value = "Hey there",
+                            15.sp,
+                            Color.Black,
+                            FontFamily.Monospace,
+                            FontWeight.Bold,
+                            TextAlign.Center
+                        )
+                        TextComponent(
+                            value = "Please register",
+                            15.sp,
+                            Color.Black,
+                            FontFamily.Monospace,
+                            FontWeight.Bold,
+                            TextAlign.Center
+                        )
+                        ImageComponent()
+                        Spacer(modifier = Modifier.height(10.dp))
+                        TextFieldComponent(mylabel = "Enter your Name")
+                        Spacer(modifier = Modifier.height(10.dp))
+                        TextFieldComponent(mylabel = "Enter your Email")
+                        Spacer(modifier = Modifier.height(10.dp))
+                        TextFieldComponent(mylabel = "Enter your Location")
+                        Spacer(modifier = Modifier.height(10.dp))
+                        TextFieldComponent(mylabel = "Enter your Pasword")
+                        Spacer(modifier = Modifier.height(10.dp))
+                        CheckboxComponent(value = "I agree to have read the terms and conditions applied")
+                        Button(
+                            onClick = {/*TODO*/},
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(10.dp),
+                                text = "REGISTER HERE"
+                            )
+                      }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(this@MainActivity,LogInActivity2::class.java)
+                                     startActivity(intent) },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(10.dp),
+                                text = "LOGIN HERE"
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(this@MainActivity,ScrollActivity::class.java)
+                            startActivity(intent)},
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(10.dp),
+                                text = "BACKGROUND"
+                            )
                         }
 
-                        }
                     }
+                }
+            }
         }
     }
-}
 
-@Composable
-fun HelloClient(name: String){
+    @Composable
+    fun HelloClient(name: String) {
 //    Text(text = "Good Afternoon $name")
 //    TextComponent(value = "Good Afternoon $name")
 
-}
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun HelloClientPreview() {
-    Column(modifier = Modifier
-        .clip(shape = RoundedCornerShape(20.dp))
-        .border(width = 2.dp, color = Color.Black)) {
-        TextComponent(value = "Hey there",
-            15.sp,
-            Color.Black,
-            FontFamily.Monospace,
-            FontWeight.Bold,
-            TextAlign.Center)
-        TextComponent(value = "Please register",
-            12.sp,
-            Color.Black,
-            FontFamily.Monospace,
-            FontWeight.Bold,
-            TextAlign.Center)
-        Spacer(modifier = Modifier.height(40.dp))
-        TextFieldComponent(mylabel = "Enter your Name")
-        Spacer(modifier = Modifier.height(40.dp))
-        TextFieldComponent(mylabel = "Enter your Email")
-        Spacer(modifier = Modifier.height(40.dp))
-        TextFieldComponent(mylabel = "Date of Birth")
-        Spacer(modifier = Modifier.height(40.dp))
-        TextFieldComponent(mylabel = "Location")
     }
+
+    @Preview(showBackground = true, showSystemUi = true)
+    @Composable
+    fun HelloClientPreview(){
+        Column(
+            modifier = Modifier
+                .clip(shape = RoundedCornerShape(20.dp))
+                .border(width = 2.dp, color = Color.Black)
+        ) {
+            TextComponent(
+                value = "Hey there",
+                15.sp,
+                Color.Black,
+                FontFamily.Monospace,
+                FontWeight.Bold,
+                TextAlign.Center
+            )
+            TextComponent(
+                value = "Please register",
+                12.sp,
+                Color.Black,
+                FontFamily.Monospace,
+                FontWeight.Bold,
+                TextAlign.Center
+            )
+            ImageComponent()
+            Spacer(modifier = Modifier.height(10.dp))
+            TextFieldComponent(mylabel = "Enter your Name")
+            Spacer(modifier = Modifier.height(10.dp))
+            TextFieldComponent(mylabel = "Enter your Email")
+            Spacer(modifier = Modifier.height(10.dp))
+            TextFieldComponent(mylabel = "Enter your Location")
+            Spacer(modifier = Modifier.height(10.dp))
+            TextFieldComponent(mylabel = "Enter your Password")
+            Spacer(modifier = Modifier.height(20.dp))
+            CheckboxComponent(value = "I agree to have read the terms and conditions applied")
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    modifier = Modifier.padding(15.dp),
+                    text = "REGISTER HERE"
+                )
+            }
+
+            Spacer(modifier = Modifier.height(20.dp))
+            Button(
+                onClick = {
+                         val intent = Intent(this@MainActivity,LogInActivity2::class.java)
+                          startActivity(intent)},
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    modifier = Modifier.padding(15.dp),
+                    text = "LOG IN HERE"
+                )
+
+            }
+        }
 //        SecondLine()
 //        ThirdLine()
 
@@ -121,45 +202,75 @@ fun HelloClientPreview() {
     }
 
 
-@Composable
-fun SecondLine(){
+    @Composable
+    fun SecondLine() {
 
-    Text(text = "Successfully logged in")
-}
-@Composable
-fun ThirdLine(){
-    Text(text = "Welcome back")
-}
-@Composable
-fun TextComponent(value: String,
-                  size:TextUnit,
-                  colorValue:Color,
-                  fontFamilyValue:FontFamily,
-                  fontWeightValue:FontWeight,
-                  textAlignValue:TextAlign){
-    Text(modifier = Modifier
-        .background(Color.LightGray)
-        .padding(10.dp)
-        .fillMaxWidth()
-        .wrapContentHeight(align = Alignment.Top),
-        text = value,
-        fontSize = size,
-        color = colorValue,
-        fontFamily = fontFamilyValue,
-        fontWeight = fontWeightValue,
-        textAlign = textAlignValue)
-}
-@Composable
-fun TextFieldComponent(mylabel:String){
-    var text by remember {
-        mutableStateOf(value = "")
+        Text(text = "Successfully logged in")
     }
-    TextField(modifier = Modifier.fillMaxWidth(),
-        value = text, onValueChange = {newText -> text = newText},
-        label = { TextFieldLabels(value = mylabel)})
 
+    @Composable
+    fun ThirdLine() {
+        Text(text = "Welcome back")
+    }
+
+    @Composable
+    fun TextComponent(
+        value: String,
+        size: TextUnit,
+        colorValue: Color,
+        fontFamilyValue: FontFamily,
+        fontWeightValue: FontWeight,
+        textAlignValue: TextAlign
+    ) {
+        Text(
+            modifier = Modifier
+                .background(Color.LightGray)
+                .padding(10.dp)
+                .fillMaxWidth()
+                .wrapContentHeight(align = Alignment.Top),
+            text = value,
+            fontSize = size,
+            color = colorValue,
+            fontFamily = fontFamilyValue,
+            fontWeight = fontWeightValue,
+            textAlign = textAlignValue
+        )
+    }
+
+    @Composable
+    fun TextFieldComponent(mylabel: String) {
+        var text by remember {
+            mutableStateOf(value = "")
+        }
+        TextField(modifier = Modifier.fillMaxWidth(),
+            value = text, onValueChange = { newText -> text = newText },
+            label = { TextFieldLabels(value = mylabel) })
+
+    }
+
+    @Composable
+    fun TextFieldLabels(value: String) {
+        Text(text = value)
+
+    }
+
+    @Composable
+    fun CheckboxComponent(value: String) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(56.dp)
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            val checkedState = remember {
+                mutableStateOf(value = false)
+            }
+            Checkbox(checked = checkedState.value, onCheckedChange = {
+
+            })
+            TextFieldLabels(value = value)
+        }
+    }
 }
-@Composable
-fun TextFieldLabels(value: String){
-    Text(text = value)
-}
+

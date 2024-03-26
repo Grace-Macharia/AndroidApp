@@ -13,6 +13,26 @@
         android:theme="@style/Theme.AndroidProjectOne"
         tools:targetApi="31">
         <activity
+            android:name=".ScrollActivity"
+            android:exported="false"
+            android:label="@string/title_activity_scroll"
+            android:theme="@style/Theme.AndroidProjectOne" />
+        <activity
+            android:name=".BoxActivity"
+            android:exported="false"
+            android:label="@string/title_activity_box"
+            android:theme="@style/Theme.AndroidProjectOne" />
+        <activity
+            android:name=".LogInActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_log_in2"
+            android:theme="@style/Theme.AndroidProjectOne" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.AndroidProjectOne" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
