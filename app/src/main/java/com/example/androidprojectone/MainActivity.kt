@@ -102,7 +102,7 @@ class MainActivity : ComponentActivity() {
                         Button(
                             onClick = {
                                 val intent = Intent(this@MainActivity,LogInActivity2::class.java)
-                                     startActivity(intent) },
+                                     startActivity(intent)},
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
