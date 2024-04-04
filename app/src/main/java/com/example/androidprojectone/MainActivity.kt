@@ -63,21 +63,21 @@ class MainActivity : ComponentActivity() {
 //                            SecondLine()
 //                            ThirdLine()
                         TextComponent(
-                            value = "Hey there",
+                            value = "Hey there,Please Register",
                             15.sp,
                             Color.Black,
                             FontFamily.Monospace,
                             FontWeight.Bold,
                             TextAlign.Center
                         )
-                        TextComponent(
-                            value = "Please register",
-                            15.sp,
-                            Color.Black,
-                            FontFamily.Monospace,
-                            FontWeight.Bold,
-                            TextAlign.Center
-                        )
+//                        TextComponent(
+//                            value = "Please register",
+//                            15.sp,
+//                            Color.Black,
+//                            FontFamily.Monospace,
+//                            FontWeight.Bold,
+//                            TextAlign.Center
+//                        )
                         ImageComponent()
                         Spacer(modifier = Modifier.height(10.dp))
                         TextFieldComponent(mylabel = "Enter your Name")
@@ -86,7 +86,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(10.dp))
                         TextFieldComponent(mylabel = "Enter your Location")
                         Spacer(modifier = Modifier.height(10.dp))
-                        TextFieldComponent(mylabel = "Enter your Pasword")
+                        TextFieldComponent(mylabel = "Enter your Password")
                         Spacer(modifier = Modifier.height(10.dp))
                         CheckboxComponent(value = "I agree to have read the terms and conditions applied")
                         Button(
@@ -122,6 +122,18 @@ class MainActivity : ComponentActivity() {
                                 text = "BACKGROUND"
                             )
                         }
+                        Spacer(modifier = Modifier.height(10.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(this@MainActivity,TopBarActivity::class.java)
+                                startActivity(intent)},
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(10.dp),
+                                text = "TOP APP"
+                            )
+                        }
 
                     }
                 }
@@ -145,21 +157,21 @@ class MainActivity : ComponentActivity() {
                 .border(width = 2.dp, color = Color.Black)
         ) {
             TextComponent(
-                value = "Hey there",
+                value = "Hey there,Please Register",
                 15.sp,
                 Color.Black,
                 FontFamily.Monospace,
                 FontWeight.Bold,
                 TextAlign.Center
             )
-            TextComponent(
-                value = "Please register",
-                12.sp,
-                Color.Black,
-                FontFamily.Monospace,
-                FontWeight.Bold,
-                TextAlign.Center
-            )
+//            TextComponent(
+//                value = "Please register",
+//                12.sp,
+//                Color.Black,
+//                FontFamily.Monospace,
+//                FontWeight.Bold,
+//                TextAlign.Center
+//            )
             ImageComponent()
             Spacer(modifier = Modifier.height(10.dp))
             TextFieldComponent(mylabel = "Enter your Name")
@@ -169,7 +181,7 @@ class MainActivity : ComponentActivity() {
             TextFieldComponent(mylabel = "Enter your Location")
             Spacer(modifier = Modifier.height(10.dp))
             TextFieldComponent(mylabel = "Enter your Password")
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             CheckboxComponent(value = "I agree to have read the terms and conditions applied")
             Button(
                 onClick = { /*TODO*/ },
@@ -181,7 +193,7 @@ class MainActivity : ComponentActivity() {
                 )
             }
 
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(15.dp))
             Button(
                 onClick = {
                          val intent = Intent(this@MainActivity,LogInActivity2::class.java)

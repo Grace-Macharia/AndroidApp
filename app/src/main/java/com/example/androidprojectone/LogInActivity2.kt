@@ -58,21 +58,21 @@ class LogInActivity2 : ComponentActivity() {
                             .border(width = 2.dp, color = Color.Black)
                     ) {
                         TextComponent(
-                            value = "Welcome Back",
+                            value = "Welcome Back,Login Here",
                             15.sp,
                             Color.Black,
                             FontFamily.Monospace,
                             FontWeight.Bold,
                             TextAlign.Center
                         )
-                        TextComponent(
-                            value = "Login Here",
-                            12.sp,
-                            Color.Black,
-                            FontFamily.Monospace,
-                            FontWeight.Bold,
-                            TextAlign.Center
-                        )
+//                        TextComponent(
+//                            value = "Login Here",
+//                            12.sp,
+//                            Color.Black,
+//                            FontFamily.Monospace,
+//                            FontWeight.Bold,
+//                            TextAlign.Center
+//                        )
                         ImageComponent()
 //        Spacer(modifier = Modifier.height(40.dp))
 //        TextFieldComponent(mylabel = "Enter your Name")
@@ -83,7 +83,8 @@ class LogInActivity2 : ComponentActivity() {
                         Spacer(modifier = Modifier.height(20.dp))
                         CheckboxComponent(value = "I agree to have read the terms and conditions applied")
                         Button(
-                            onClick = {val intent = Intent(this@LogInActivity2,MainActivity::class.java)
+                            onClick = {
+                                val intent = Intent(this@LogInActivity2,MainActivity::class.java)
                                 startActivity(intent)},
                             modifier = Modifier.fillMaxWidth()
                         ) {
@@ -103,6 +104,20 @@ class LogInActivity2 : ComponentActivity() {
                             )
 
                         }
+                        Spacer(modifier = Modifier.height(20.dp))
+                        Button(
+                            onClick = {
+                                val intent = Intent(this@LogInActivity2,CardActivity::class.java)
+                                startActivity(intent)},
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                modifier = Modifier.padding(15.dp),
+                                text = "CARD"
+                            )
+                        }
+
+
                     }
 
                 }

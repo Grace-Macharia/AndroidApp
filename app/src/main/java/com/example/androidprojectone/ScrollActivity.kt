@@ -89,7 +89,7 @@ fun RowCard(modifier: Modifier,name: String){
         .fillMaxWidth()
         .height(100.dp)
         .aspectRatio(1.5f), colors = CardDefaults.cardColors(
-            containerColor = Color.Magenta
+            containerColor = Color.Cyan
         ),
         elevation = CardDefaults.cardElevation(10.dp)) {
         Box (modifier = Modifier
